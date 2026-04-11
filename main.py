@@ -3,21 +3,23 @@ from pydantic import BaseModel
 import json
 app =  FastAPI()
  
+import json
 def load_data():
     with open('patients.json', 'r') as f:
         data = json.load(f)
-    return data 
+    return data
 
 @app.get("/")
 def hello():
-    return {"message": "Patients data api"}
+    return {"message": "patients api"}
 
-@app.get('/about')
+@app.get("/about")
 def about():
-    return {"message": "About Patients data api"}
- 
-@app.get('/view')
-def view():
+    return {"message": "This is a simple API to manage patient data."}
+
+@app.get("/views")
+def views():
     data = load_data()
-    
-    return data
+
+    return data 
+
